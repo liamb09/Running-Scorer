@@ -148,10 +148,11 @@ def get_equivalent_marks (points, gender):
                     else:
                         events = row[:len(row)-1]
                     for event in events:
-                        if event != "-" and page[0][cnt] != "Decathlon":
-                            marks.append([seconds_to_time(event), page[0][cnt]])
-                        else:
-                            marks.append([event, page[0][cnt]])
+                        if event != "-":
+                            if page[0][cnt] != "Decathlon":
+                                marks.append([seconds_to_time(event), page[0][cnt]])
+                            else:
+                                marks.append([event, page[0][cnt]])
                         cnt += 1
 
     return marks
